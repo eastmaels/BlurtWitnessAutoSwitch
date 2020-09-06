@@ -1,26 +1,24 @@
 {
-  "name": "steem-witness-auto-switch",
+  "name": "blurt-witnesses-auto-switch",
   "version": "1.0.0",
-  "description": "Steem Witness Auto Switch",
-  "main": "monitor-witness.js",
+  "description": "Auto Switch Blurt Witness Node",
+  "main": "functions.js",
   "scripts": {
-    "start": "node monitor-witness.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DoctorLai/SteemWitnessAutoSwitch.git"
+    "url": "git+https://github.com/ericet/BlurtWitnessAutoSwitch.git"
   },
-  "keywords": [
-    "steem",
-    "witness"
-  ],
-  "author": "justyy",
-  "license": "MIT",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "bugs": {
-    "url": "https://github.com/DoctorLai/SteemWitnessAutoSwitch/issues"
+    "url": "https://github.com/ericet/BlurtWitnessAutoSwitch/issues"
   },
-  "homepage": "https://github.com/DoctorLai/SteemWitnessAutoSwitch#readme",
+  "homepage": "https://github.com/ericet/BlurtWitnessAutoSwitch#readme",
   "dependencies": {
-    "steem": "^0.7.11"
+    "@blurtfoundation/blurtjs": "^0.1.1",
+    "child_process": "^1.0.2"
   }
 }

@@ -1,5 +1,5 @@
-# SteemWitnessAutoSwitch
-Auto Switch Steem Witness Node
+# BlurtWitnessAutoSwitch
+Auto Switch Blurt Witness Node
 
 # How to use
 1. Configure your settings in `config.json`
@@ -8,7 +8,7 @@ Auto Switch Steem Witness Node
 # Docker
 1. Build docker image
 ```
-git pull https://github.com/DoctorLai/SteemWitnessAutoSwitch.git
+git pull https://github.com/ericet/BlurtWitnessAutoSwitch.git
 cd SteemWitnessAutoSwitch
 docker build -t auto-switch .
 ```

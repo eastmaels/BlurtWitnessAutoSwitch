@@ -1,19 +1,17 @@
 'use strict';
 
 const fs = require("fs");
-const steem = require('steem');
+const blurt = require('@blurtfoundation/blurtjs');
 
 const config = JSON.parse(fs.readFileSync("./config.json"));
-const execSync = require('child_process').execSync;
 
 const functions = require('./functions');
 const log = functions.log;
-const arrayInArray = functions.arrayInArray;
 const runInterval = functions.runInterval;
 
 // Connect to the specified RPC node
-const rpc_node = config.rpc_nodes ? config.rpc_nodes[0] : (config.rpc_node ? config.rpc_node : 'https://api.steemit.com');
-steem.api.setOptions({ transport: 'https', uri: rpc_node, url: rpc_node });
+const rpc_node = config.rpc_nodes ? config.rpc_nodes[0] : (config.rpc_node ? config.rpc_node : 'https://rpc.blurt.world');
+blurt.api.setOptions({ transport: 'https', uri: rpc_node, url: rpc_node, useAppbase:true });
 
 let missData = [];
 
@@ -22,7 +20,7 @@ runInterval(startProcess, config.interval * 1000, 99999999999999);
 
 function getWitness(id) {
     return new Promise((resolve, reject) => {
-        steem.api.getWitnessByAccount(id, function(err, result) {
+        blurt.api.getWitnessByAccount(id, function(err, result) {
             if (!err) {
                 resolve(result);
             } else {
@@ -35,7 +33,7 @@ function getWitness(id) {
 function switchTo(signing_key) {
     log("Switching to " + signing_key);
     const props = {};    
-    steem.broadcast.witnessUpdate(config.key, config.account, config.url, signing_key, props, config.fee, function(err, result) {
+    blurt.broadcast.witnessUpdate(config.key, config.account, config.url, signing_key, props, config.fee, function(err, result) {
         // TODO: You can send a email/SMS here
         console.log(err, result, stdout);
     });    
@@ -55,7 +53,7 @@ async function startProcess() {
     const signing_key = account.signing_key;
     
     // already disabled, so no point to switch
-    if (signing_key === "STM1111111111111111111111111111111114T1Anm") {
+    if (signing_key === "BLT1111111111111111111111111111111114T1Anm") {
         throw "disabled already.";
     }
     
