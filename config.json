@@ -11,5 +11,5 @@
     "interval": 60,
     "period": 360,
     "threshold": 4,
-    "rpc_nodes": ["https://rcp.blurt.world"] 
+    "rpc_nodes": ["https://blurtd.privex.io"] 
 }

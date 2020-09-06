@@ -10,8 +10,8 @@ const log = functions.log;
 const runInterval = functions.runInterval;
 
 // Connect to the specified RPC node
-const rpc_node = config.rpc_nodes ? config.rpc_nodes[0] : (config.rpc_node ? config.rpc_node : 'https://rpc.blurt.world');
-blurt.api.setOptions({ transport: 'https', uri: rpc_node, url: rpc_node, useAppbase:true });
+const rpc_node = config.rpc_nodes ? config.rpc_nodes[0] : (config.rpc_node ? config.rpc_node : 'https://blurtd.privex.io');
+blurt.api.setOptions({uri: rpc_node, url: rpc_node, useAppbase:true });
 
 let missData = [];
 
